@@ -1,0 +1,153 @@
+[tool.pytest_env]
+OPENAI_API_KEY = "sk-IamNotARealKeyJustForMockTestKawaiiiiiiiiii"
+OPENAI_API_BASE = ""
+ANTHROPIC_API_KEY = "sk-ant-api11-IamNotARealKeyJustForMockTestKawaiiiiiiiiii-NotBaka-ASkksz"
+
+
+[tool.poetry]
+name = "mvp-server"
+version = "0.1.0"
+description = ""
+authors = ["Kirk Lin <linkirk@163.com>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+############################################################
+# Main dependencies
+############################################################
+
+[tool.poetry.dependencies]
+python = "^3.10"
+openai = "^1.37.0"
+flask = "~3.0.3"
+flask-compress = "~1.14"
+flask-cors = "~4.0.0"
+flask-login = "~0.6.3"
+flask-migrate = "~4.0.5"
+flask-restful = "~0.3.10"
+Flask-SQLAlchemy = "~3.1.1"
+# 阿里云OSS
+oss2 = "2.18.5"
+
+gevent = "^24.2.1"
+python-dotenv = "^1.0.1"
+pydantic = "^2.8.2"
+pydantic-settings = "^2.3.4"
+grpcio = "^1.65.1"
+werkzeug = "^3.0.3"
+gmpy2 = "^2.2.1"
+pyjwt = "^2.8.0"
+celery = "^5.4.0"
+redis = "^5.0.7"
+resend = "^2.3.0"
+psycopg2-binary = "^2.9.9"
+pycryptodome = "^3.20.0"
+cos-python-sdk-v5 = "^1.9.30"
+gunicorn = "^22.0.0"
+weixin-python = "^0.5.7"
+requests = "^2.32.3"
+sseclient-py = "^1.8.0"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+exclude = [
+]
+line-length = 120
+
+[tool.ruff.lint]
+preview = true
+select = [
+    "B", # flake8-bugbear rules
+    "C4", # flake8-comprehensions
+    "F", # pyflakes rules
+    "I", # isort rules
+    "UP", # pyupgrade rules
+    "B035", # static-key-dict-comprehension
+    "E101", # mixed-spaces-and-tabs
+    "E111", # indentation-with-invalid-multiple
+    "E112", # no-indented-block
+    "E113", # unexpected-indentation
+    "E115", # no-indented-block-comment
+    "E116", # unexpected-indentation-comment
+    "E117", # over-indented
+    "RUF019", # unnecessary-key-check
+    "RUF100", # unused-noqa
+    "RUF101", # redirected-noqa
+    "S506", # unsafe-yaml-load
+    "SIM116", # if-else-block-instead-of-dict-lookup
+    "SIM401", # if-else-block-instead-of-dict-get
+    "SIM910", # dict-get-with-none-default
+    "W191", # tab-indentation
+    "W605", # invalid-escape-sequence
+    "F601", # multi-value-repeated-key-literal
+    "F602", # multi-value-repeated-key-variable
+]
+ignore = [
+    "F403", # undefined-local-with-import-star
+    "F405", # undefined-local-with-import-star-usage
+    "F821", # undefined-name
+    "F841", # unused-variable
+    "UP007", # non-pep604-annotation
+    "UP032", # f-string
+    "B005", # strip-with-multi-characters
+    "B006", # mutable-argument-default
+    "B007", # unused-loop-control-variable
+    "B026", # star-arg-unpacking-after-keyword-arg
+#    "B901", # return-in-generator
+    "B904", # raise-without-from-inside-except
+    "B905", # zip-without-explicit-strict
+]
+
+[tool.ruff.lint.per-file-ignores]
+"app.py" = [
+    "F401", # unused-import
+    "F811", # redefined-while-unused
+]
+"__init__.py" = [
+    "F401", # unused-import
+    "F811", # redefined-while-unused
+]
+"tests/*" = [
+    "F401", # unused-import
+    "F811", # redefined-while-unused
+]
+
+[tool.ruff.format]
+quote-style = "double"
+
+############################################################
+# Dev dependencies for running tests
+############################################################
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+coverage = "~7.2.4"
+pytest = "~8.1.1"
+pytest-benchmark = "~4.0.0"
+pytest-env = "~1.1.3"
+pytest-mock = "~3.14.0"
+
+############################################################
+# Lint dependencies for code style linting
+############################################################
+
+[tool.poetry.group.lint]
+optional = true
+
+[tool.poetry.group.lint.dependencies]
+ruff = "~0.5.1"
+dotenv-linter = "~0.5.0"
+
+############################################################
+# Source
+############################################################
+
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple/"
+priority = "primary"
